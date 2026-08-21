@@ -1,23 +1,41 @@
 // Import all dependencies
-import { Route , createRoutesFromElements, createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+  Route,
+  createRoutesFromElements,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 // Import Components
+import Layout from "../Layout/Layout.jsx";
 
+// Import Pages
+import HomePage from "../../pages/HomePage/HomePage.jsx";
+import DetailsPage from "../../pages/DetailsPage/DetailsPage.jsx";
+import SearchPage from "../../pages/SearchPage/SearchPage.jsx";
+import MediaCategoryPage from "../../pages/MediaCategoryPage/MediaCategoryPage.jsx";
+import WatchlistPage from "../../pages/WatchlistPage/WatchlistPage.jsx";
 
 // Import Styles
-import './App.css'
+import "./App.css";
 
+// Create the router
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/media/:mediaType" element={<MediaCategoryPage />} />
+      <Route path="/media/:mediaType/:id" element={<DetailsPage />} />
+      <Route path="/search" element={<SearchPage />} />
+      <Route path="/watchlist" element={<WatchlistPage />} />
+    </Route>,
+  ),
+);
+
+// App Component
 function App() {
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path='/' element={} />
-    )
-  )
-
-  return (
-   <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
-export default App
+// Export the App component
+export default App;
