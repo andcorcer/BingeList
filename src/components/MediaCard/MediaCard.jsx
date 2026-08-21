@@ -12,7 +12,7 @@ import {
 // Import Styles
 
 // MediaCard Component
-const MediaCard = ({ item, type }) => {
+const MediaCard = ({ item, type }) => { // Give a default value to the type prop to avoid errors when it is not provided
   const dispatch = useDispatch(); // Get the dispatch function from Redux to dispatch actions
 
   // Save all the item's details
