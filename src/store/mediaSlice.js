@@ -159,5 +159,6 @@ const mediaSlice = createSlice({
   },
 });
 
+// Export actions and reducer
 export const { clearSearch, clearDetails, clearCategory } = mediaSlice.actions;
 export default mediaSlice.reducer;
