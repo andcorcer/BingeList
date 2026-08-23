@@ -4,10 +4,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Import API helper functions
 import {
   fetchTrending,
-  fetchMediaById,
+  fetchMediaDetailsById,
   fetchSearchMedia,
   fetchCategoryMedia,
-} from "../api/api.js";
+} from "../utilities/tmdbApi.js";
 
 // Initial state for the media slice
 const initialState = {
@@ -44,7 +44,7 @@ export const fetchMediaDetails = createAsyncThunk(
   "media/fetchMediaDetails",
   async ({ id, type }, { rejectWithValue }) => {
     try {
-      return await fetchMediaById(id, type);
+      return await fetchMediaDetailsById(id, type);
     } catch (error) {
       return rejectWithValue(error.message);
     }

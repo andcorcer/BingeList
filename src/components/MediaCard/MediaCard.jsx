@@ -7,12 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   addToWatchlist,
   removeFromWatchlist,
-} from "../../redux/actions/watchlistActions.js";
+} from "../../store/watchlistSlice.js";
 
 // Import Styles
 
 // MediaCard Component
-const MediaCard = ({ item, type }) => { // Give a default value to the type prop to avoid errors when it is not provided
+const MediaCard = ({ item, type }) => {
+  // Give a default value to the type prop to avoid errors when it is not provided
   const dispatch = useDispatch(); // Get the dispatch function from Redux to dispatch actions
 
   // Save all the item's details
@@ -38,6 +39,7 @@ const MediaCard = ({ item, type }) => { // Give a default value to the type prop
   const handleWatchlistToggle = (event) => {
     event.preventDefault(); // Prevent the default link behavior to avoid navigation when clicking the button
     event.stopPropagation(); // Stop the event from propagating to parent elements to prevent unwanted side effects
+
     if (isInWatchlist) {
       dispatch(removeFromWatchlist({ id: item.id, media_type: mediaType })); // Dispatch the removeFromWatchlist action with the item's id and media_type
     } else {
@@ -49,7 +51,6 @@ const MediaCard = ({ item, type }) => { // Give a default value to the type prop
           release_date: releaseDate,
           poster_path: item.poster_path,
           vote_average: item.vote_average,
-          poster_path: item.poster_path,
         }),
       ); // Dispatch the addToWatchlist action with the item's details
     }
@@ -57,30 +58,34 @@ const MediaCard = ({ item, type }) => { // Give a default value to the type prop
 
   return (
     <div className="media-card">
-      <Link to={`/media/${mediaType}/${item.id}`} className="card-link">
-        {" "}
+      <div className="poster-container">
         {/* Link to the media details page that activates when clicking anywhere on the card */}
-        <div className="poster-container">
+        <Link to={`/media/${mediaType}/${item.id}`} className="card-link">
           <img
             src={posterUrl}
             alt={title}
             className="poster-img"
             loading="lazy"
-          />{" "}
+          />
           {/* Display the poster image with lazy loading to improve performance */}
-          {/*/ Add a button to add or remove the item from the watchlist */}
-          <button
-            type="button"
-            className={`watchlist-btn ${isInWatchlist ? "active" : ""}`}
-            onClick={handleWatchlistToggle}
-            aria-label={
-              isInWatchlist ? "Remove from watchlist" : "Add to watchlist"
-            }
-          >
-            {isInWatchlist ? "★" : "☆"}{" "}
-            {/* Display a filled star if the item is in the watchlist, otherwise display an empty star */}
-          </button>
-        </div>
+        </Link>
+
+        {/* Add a button to add or remove the item from the watchlist */}
+        <button
+          type="button"
+          className={`watchlist-btn ${isInWatchlist ? "active" : ""}`}
+          onClick={handleWatchlistToggle}
+          aria-label={
+            isInWatchlist ? "Remove from watchlist" : "Add to watchlist"
+          }
+        >
+          {isInWatchlist ? "★" : "☆"}{" "}
+          {/* Display a filled star if the item is in the watchlist, otherwise display an empty star */}
+        </button>
+      </div>
+
+      {/* Another Link element to the same path to ensure that clicking anywhere on the card (BUT THE BUTTON) navigates to the media details page */}
+      <Link to={`/media/${mediaType}/${item.id}`} className="card-link">
         <div className="card-content">
           <h3 className="card-title">{title}</h3>
           <div className="card-meta">
