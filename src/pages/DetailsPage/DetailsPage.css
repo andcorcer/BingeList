@@ -1,0 +1,18 @@
+.details-backdrop {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Or 50vh, depending on how tall you want it */
+  background-size: cover; /* Ensures the image covers the whole div without stretching */
+  background-position: center; /* Keeps the most important part of the image in the middle */
+  background-repeat: no-repeat;
+}
+
+/* Creates a gradient that gets darker towards the bottom (alpha value 0)*/
+.details-backdrop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #121212 5%, rgba(18, 18, 18, 0) 100%);
+}
