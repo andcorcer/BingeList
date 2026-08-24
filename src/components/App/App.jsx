@@ -15,6 +15,7 @@ import DetailsPage from "../../pages/DetailsPage/DetailsPage.jsx";
 import SearchPage from "../../pages/SearchPage/SearchPage.jsx";
 import MediaCategoryPage from "../../pages/MediaCategoryPage/MediaCategoryPage.jsx";
 import WatchlistPage from "../../pages/WatchlistPage/WatchlistPage.jsx";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 
 // Import Styles
 import "./App.css";
@@ -24,10 +25,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
-      <Route path="/media/:mediaType" element={<MediaCategoryPage />} />
+      <Route
+        path="/category/:mediaType/:category"
+        element={<MediaCategoryPage />}
+      />
       <Route path="/media/:mediaType/:id" element={<DetailsPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/watchlist" element={<WatchlistPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Route>,
   ),
 );

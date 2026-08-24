@@ -1,8 +1,6 @@
 // Import all dependencies
 import React from "react";
-
-// Import Components
-
+import { Link } from "react-router-dom";
 
 // Import Styles
 

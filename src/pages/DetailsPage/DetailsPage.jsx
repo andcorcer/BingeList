@@ -27,11 +27,11 @@ const DetailsPage = () => {
   const watchlist = useSelector((state) => state.watchlist.items); // Get watchlist items from the Redux store
 
   useEffect(() => {
-    dispatch(fetchMediaDetails({ type: mediaType, id }));
+    dispatch(fetchMediaDetails({ type: mediaType, id })); // Fetch media details when the component mounts or when mediaType or id changes
   }, [dispatch, mediaType, id]);
 
   if (status === "loading") {
-    return <Loading />; // Show loading spinner while fetching data
+    return <Loading />; // Show Loaing component while fetching data
   }
 
   if (error || status === "failed") {
@@ -46,8 +46,10 @@ const DetailsPage = () => {
   if (!data) {
     return <p>No data available.</p>; // Show message if no data is available
   }
-
-  const isInWatchlist = watchlist.some((item) => item.id === data.id && item.mediaType === mediaType); // Check if the media item by checking both its ID and media type since ID's aren't unique across media types
+  
+  const isInWatchlist = watchlist.some(
+    (item) => item.id === data.id && item.mediaType === mediaType,
+  ); // Check if the media item by checking both its ID and media type since ID's aren't unique across media types
 
   const handleWatchlistToggle = () => {
     if (isInWatchlist) {
@@ -72,20 +74,21 @@ const DetailsPage = () => {
     ? `https://image.tmdb.org/t/p/original${data.backdrop_path}`
     : null;
 
+
   return (
     <div className="details-page">
-      {/* Background Backdrop Header */}
+      {/* Backdrop Header */}
       {backdropUrl && (
         <div
           className="details-backdrop"
           style={{ backgroundImage: `url(${backdropUrl})` }}
         >
-          <div className="details-backdrop-overlay" />
+          <div className="details-backdrop-overlay" /> {/* Overlay to darken the backdrop for better text readability */}
         </div>
       )}
 
       <div className="details-container">
-        {/* Media Poster Column */}
+        {/* Media Poster */}
         <div className="details-poster-wrapper">
           <img src={posterUrl} alt={title} className="details-poster" />
           <button
@@ -97,7 +100,7 @@ const DetailsPage = () => {
           </button>
         </div>
 
-        {/* Media Information Column */}
+        {/* Media Information */}
         <div className="details-info">
           <h1 className="details-title">
             {title} <span className="details-year">({year})</span>
@@ -113,8 +116,7 @@ const DetailsPage = () => {
             )}
             {data.number_of_seasons && (
               <span className="badge seasons">
-                {data.number_of_seasons} Season
-                {data.number_of_seasons > 1 ? "s" : ""}
+                {data.number_of_seasons > 1 ? `${data.number_of_seasons} Seasons` : `${data.number_of_seasons} Season`}
               </span>
             )}
           </div>

@@ -12,10 +12,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <NavLink to="/media/movie" className={getLinkClass}>
+      <NavLink to="/category/movie/popular" className={getLinkClass}>
         Movies
       </NavLink>
-      <NavLink to="/media/tv" className={getLinkClass}>
+      <NavLink to="/category/tv/popular" className={getLinkClass}>
         TV Shows
       </NavLink>
       <NavLink to="/search" className={getLinkClass}>
