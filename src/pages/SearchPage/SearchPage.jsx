@@ -130,7 +130,13 @@ const SearchPage = () => {
                 : "TV shows"
           } found for the search: "${queryParam}".`}
           onRetry={() =>
-            dispatch(fetchSearchResults({ query: queryParam, type: typeParam, page: pageParam }))
+            dispatch(
+              fetchSearchResults({
+                query: queryParam,
+                type: typeParam,
+                page: pageParam,
+              }),
+            )
           }
         />
       ) : (

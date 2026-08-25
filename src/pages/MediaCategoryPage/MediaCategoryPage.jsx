@@ -36,7 +36,7 @@ const MediaCategoryPage = () => {
   const dispatch = useDispatch();
 
   const { results, page, totalPages, status, error } = useSelector(
-    (state) => state.media.category || {}
+    (state) => state.media.category || {},
   );
 
   // Fetch media details when the component mounts or when mediaType, category or page change
@@ -51,8 +51,10 @@ const MediaCategoryPage = () => {
 
   // Handle next/previous page clicks
   const handlePageChange = (newPage) => {
-    dispatch(fetchCategoryMediaThunk({ type: mediaType, category, page: newPage }));
-  }
+    dispatch(
+      fetchCategoryMediaThunk({ type: mediaType, category, page: newPage }),
+    );
+  };
 
   // Format the returned category into readable text (e.g. "top_rated => Top Rated")
   const formatCategory = (category) => {
@@ -68,18 +70,19 @@ const MediaCategoryPage = () => {
   // Checks if the page is loading
   const isLoading = status === "loading";
 
-return (
+  return (
     <div className="category-page">
       <header className="category-header">
         <h2 className="category-title">
-          {mediaType === "movie" ? "Movies" : "TV Shows"} - {formatCategory(category)}
+          {mediaType === "movie" ? "Movies" : "TV Shows"} -{" "}
+          {formatCategory(category)}
         </h2>
 
         {/* Category Selector */}
         <div className="category-selector">
           <select
             value={category}
-            onChange={({target}) => handleCategoryChange(target.value)}
+            onChange={({ target }) => handleCategoryChange(target.value)}
             className="category-select"
           >
             {availableCategories.map((category) => (
@@ -98,7 +101,9 @@ return (
         isLoading={isLoading}
         error={error}
         emptyMessage={`No ${mediaType === "movie" ? "movies" : "TV shows"} found for the ${category} category.`}
-        onRetry={() => dispatch(fetchCategoryMediaThunk({ type: mediaType, category }))}
+        onRetry={() =>
+          dispatch(fetchCategoryMediaThunk({ type: mediaType, category }))
+        }
       />
 
       {/* Page Controls */}
@@ -108,8 +113,8 @@ return (
           <button
             type="button"
             className="btn back-btn"
-            disabled={page === 1 || isLoading} 
-            onClick={() => handlePageChange(page - 1)} 
+            disabled={page === 1 || isLoading}
+            onClick={() => handlePageChange(page - 1)}
           >
             Previous Page
           </button>

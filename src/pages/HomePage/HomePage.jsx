@@ -48,6 +48,8 @@ const HomePage = () => {
     return <Loading />;
   }
 
+  // We call the error and the loading component directly instead of passing isLoading and error props to MediaGrid because we have one for each media type (TV shows and movies)
+
   const featuredItem = movies?.[0] || tv?.[0]; // Display the first trending item as the featured hero banner
 
   return (
