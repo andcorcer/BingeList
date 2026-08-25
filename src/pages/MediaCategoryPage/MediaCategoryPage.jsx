@@ -13,7 +13,7 @@ import Error from "../../components/Error/Error.jsx";
 
 // Import Styles
 
-// existing Categories
+// Existing Categories
 const CATEGORIES = {
   movie: [
     { label: "Popular", value: "popular" },

@@ -48,19 +48,32 @@ export const fetchMediaDetailsById = async (id, type) => {
 };
 
 // Fetches search results using a query and with the option to switch pages (default is page 1). The search is performed across multiple media types
-export const fetchSearchMedia = async (query, page = 1) => {
+export const fetchSearchMedia = async (query, type, page = 1) => {
   try {
+    // Getting the correct endpoint using the type parameter
+    const typeEndpoint = type === "all" || !type ? "multi" : type;
+
     const response = await fetch(
-      `${BASE_URL}/search/multi?query=${encodeURIComponent(query)}&page=${page}`,
+      `${BASE_URL}/search/${typeEndpoint}?query=${encodeURIComponent(query)}&page=${page}`,
       options,
     );
     if (!response.ok) {
       throw new Error(`HTTP error "${response.status}": Search failed`);
     }
     const data = await response.json();
+
+    // Returns data omitting people and 
+    const mediaResults = (data.results || [])
+      .filter(item => item.media_type !== "person")
+      .map(item => ({
+        ...item,
+        // Ensure media_type is explicitly set if TMDB omitted it
+        media_type: item.media_type || typeEndpoint, 
+      }));
+
     return {
       ...data,
-      results: data.results.filter((result) => result.media_type !== "person"), // Filter out 'person' media type
+      results: mediaResults,
     };
   } catch (error) {
     console.error("Error in the fetchSearchMedia function:", error.message);

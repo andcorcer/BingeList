@@ -15,7 +15,7 @@ const MediaGrid = ({
   isLoading = false,
   error = null,
   emptyMessage = "No media items found.", // Optional message to display when the grid is empty
-  emptyAction, // Optional action to perform when the watchlist grid is empty
+  emptyAction, // Optional action to perform when the watchlist grid is empty (For the watchlistPage)
   onRetry, // Optional callback function to retry fetching data when the grid is empty
 }) => {
     

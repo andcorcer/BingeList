@@ -54,9 +54,9 @@ export const fetchMediaDetails = createAsyncThunk(
 // Aync thunk to fetch search results
 export const fetchSearchResults = createAsyncThunk(
   "media/fetchSearchResults",
-  async ({ query, page = 1 }, { rejectWithValue }) => {
+  async ({ query, type, page = 1 }, { rejectWithValue }) => {
     try {
-      return await fetchSearchMedia(query, page);
+      return await fetchSearchMedia(query, type, page);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -70,7 +70,7 @@ export const fetchCategoryMediaThunk = createAsyncThunk(
     try {
       return await fetchCategoryMedia(type, category, page);
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.message || "Failed to retrieve any search results. Try Again");
     }
   },
 );

@@ -1,27 +1,30 @@
 // Import all dependencies
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // Import Styles
 
 // Navbar Component
 const Navbar = () => {
-  // Get the class name for the link based on whether it is active or not to style accordingly
-  const getLinkClass = ({ isActive }) =>
-    isActive ? "nav-link active" : "nav-link";
+  const location = useLocation();
+
+  
+  // Set 'active' className to the NavLink depending on the media type and regardless of the category selected
+  const isMovieActive = location.pathname.startsWith('/category/movie');
+  const isTVActive = location.pathname.startsWith('/category/tv');
 
   return (
     <nav className="navbar">
-      <NavLink to="/category/movie/popular" className={getLinkClass}>
+      <NavLink to="/category/movie/popular" className={`nav-link ${isMovieActive ? 'active' : ''}`}>
         Movies
       </NavLink>
-      <NavLink to="/category/tv/popular" className={getLinkClass}>
+      <NavLink to="/category/tv/popular" className={`nav-link ${isTVActive ? 'active' : ''}`}>
         TV Shows
       </NavLink>
-      <NavLink to="/search" className={getLinkClass}>
+      <NavLink to="/search" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
         Search
       </NavLink>
-      <NavLink to="/watchlist" className={getLinkClass}>
+      <NavLink to="/watchlist" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
         Watchlist
       </NavLink>
     </nav>
