@@ -19,7 +19,7 @@ const WatchlistPage = () => {
     items = [],
     status = "idle",
     error = null,
-  } = useSelector((state) => state.media.watchlist || {});
+  } = useSelector((state) => state.watchlist || {});
 
   
   // Checks if the page is loading

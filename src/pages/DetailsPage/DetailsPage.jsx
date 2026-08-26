@@ -46,16 +46,22 @@ const DetailsPage = () => {
   if (!data) {
     return <p>No data available.</p>; // Show message if no data is available
   }
-  
+
+  const numericId = Number(id);
   const isInWatchlist = watchlist.some(
-    (item) => item.id === data.id && item.mediaType === mediaType,
-  ); // Check if the media item by checking both its ID and media type since ID's aren't unique across media types
+    (item) => item.id === numericId && item.media_type === mediaType,
+  ); // Check if the media item is in the watchlist by checking both its ID and media type since ID's aren't unique across media types
 
   const handleWatchlistToggle = () => {
+    const itemToToggle = {
+      ...data,
+      media_type: mediaType, // data object doesn't have an innate media_type key
+    };
+
     if (isInWatchlist) {
-      dispatch(removeFromWatchlist(data));
+      dispatch(removeFromWatchlist(itemToToggle));
     } else {
-      dispatch(addToWatchlist(data));
+      dispatch(addToWatchlist(itemToToggle));
     }
   };
 
@@ -74,7 +80,6 @@ const DetailsPage = () => {
     ? `https://image.tmdb.org/t/p/original${data.backdrop_path}`
     : null;
 
-
   return (
     <div className="details-page">
       {/* Backdrop Header */}
@@ -83,7 +88,8 @@ const DetailsPage = () => {
           className="details-backdrop"
           style={{ backgroundImage: `url(${backdropUrl})` }}
         >
-          <div className="details-backdrop-overlay" /> {/* Overlay to darken the backdrop for better text readability */}
+          <div className="details-backdrop-overlay" />{" "}
+          {/* Overlay to darken the backdrop for better text readability */}
         </div>
       )}
 
@@ -96,7 +102,7 @@ const DetailsPage = () => {
             className={`btn watchlist-btn-large ${isInWatchlist ? "active" : ""}`}
             onClick={handleWatchlistToggle}
           >
-            {isInWatchlist ? "★ In Watchlist" : "☆ Add to Watchlist"}
+            {isInWatchlist ? "★ Remove from Watchlist" : "☆ Add to Watchlist"}
           </button>
         </div>
 
@@ -116,7 +122,9 @@ const DetailsPage = () => {
             )}
             {data.number_of_seasons && (
               <span className="badge seasons">
-                {data.number_of_seasons > 1 ? `${data.number_of_seasons} Seasons` : `${data.number_of_seasons} Season`}
+                {data.number_of_seasons > 1
+                  ? `${data.number_of_seasons} Seasons`
+                  : `${data.number_of_seasons} Season`}
               </span>
             )}
           </div>
