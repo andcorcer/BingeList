@@ -21,7 +21,6 @@ const WatchlistPage = () => {
     error = null,
   } = useSelector((state) => state.watchlist || {});
 
-  
   // Checks if the page is loading
   const isLoading = status === "loading";
 
@@ -30,15 +29,19 @@ const WatchlistPage = () => {
 
   // Handle 'Clear All'
   const handleClearAll = () => {
-    window.confirm("Are you sure you want to clear your entire watchlist?") && dispatch(clearWatchlist());
-  }
+    window.confirm("Are you sure you want to clear your entire watchlist?") &&
+      dispatch(clearWatchlist());
+  };
 
   // Custom JSX passed neatly into MediaGrid
   const emptyWatchlist = (
     <div className="watchlist-empty">
       <div className="empty-icon">🔖</div>
       <h2>Your Watchlist is Empty</h2>
-      <p>Keep an eye on movies and TV shows you want to watch by adding them to your list.</p>
+      <p>
+        Keep an eye on movies and TV shows you want to watch by adding them to
+        your list.
+      </p>
       <Link to="/search" className="btn browse-btn">
         Browse Content
       </Link>
@@ -50,10 +53,12 @@ const WatchlistPage = () => {
       <header className="watchlist-header">
         <div className="watchlist-header-content">
           <h1 className="watchlist-title">My Watchlist</h1>
-            {/* paragraph element that displays the amount of titles saved (and maintains pluralization) or displays a message if there isn't any */}
-            <p className="watchlist-count">
-              {hasItems ? `${items.length} ${items.length === 1 ? "title" : "titles"} saved` : "No titles saved"}
-            </p>
+          {/* paragraph element that displays the amount of titles saved (and maintains pluralization) or displays a message if there isn't any */}
+          <p className="watchlist-count">
+            {hasItems
+              ? `${items.length} ${items.length === 1 ? "title" : "titles"} saved`
+              : "No titles saved"}
+          </p>
         </div>
 
         {/* Clear Items Button (only renders if watchlist has any items) */}
@@ -70,12 +75,12 @@ const WatchlistPage = () => {
       </header>
 
       {/* Main Grid */}
-        <MediaGrid
-          items={items}
-          isLoading={isLoading}
-          error={error}
-          emptyContent={emptyWatchlist}
-        />
+      <MediaGrid
+        items={items}
+        isLoading={isLoading}
+        error={error}
+        emptyContent={emptyWatchlist}
+      />
     </div>
   );
 };

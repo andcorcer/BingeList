@@ -62,13 +62,13 @@ export const fetchSearchMedia = async (query, type, page = 1) => {
     }
     const data = await response.json();
 
-    // Returns data omitting people and 
+    // Returns data omitting people and
     const mediaResults = (data.results || [])
-      .filter(item => item.media_type !== "person")
-      .map(item => ({
+      .filter((item) => item.media_type !== "person")
+      .map((item) => ({
         ...item,
         // Ensure media_type is explicitly set if TMDB omitted it
-        media_type: item.media_type || typeEndpoint, 
+        media_type: item.media_type || typeEndpoint,
       }));
 
     return {

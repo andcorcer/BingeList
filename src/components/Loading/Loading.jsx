@@ -5,7 +5,6 @@ import React from "react";
 
 // Loading Component
 const Loading = () => {
-
   return (
     <div className="loading-container">
       <p className="loading-message">⏳ Loading...</p>

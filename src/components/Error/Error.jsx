@@ -5,7 +5,6 @@ import React from "react";
 
 // Error Component
 const Error = ({ error, onRetry }) => {
-
   // Extract a clean string for the UI
   const errorMessage =
     typeof error === "string"

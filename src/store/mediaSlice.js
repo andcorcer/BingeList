@@ -70,7 +70,9 @@ export const fetchCategoryMediaThunk = createAsyncThunk(
     try {
       return await fetchCategoryMedia(type, category, page);
     } catch (error) {
-      return rejectWithValue(error.message || "Failed to retrieve any search results. Try Again");
+      return rejectWithValue(
+        error.message || "Failed to retrieve any search results. Try Again",
+      );
     }
   },
 );
