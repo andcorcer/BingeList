@@ -10,6 +10,7 @@ import {
 } from "../../store/watchlistSlice.js";
 
 // Import Styles
+import "./MediaCard.css";
 
 // MediaCard Component
 const MediaCard = ({ item, type }) => {

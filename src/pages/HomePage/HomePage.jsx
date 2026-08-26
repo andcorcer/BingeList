@@ -12,6 +12,7 @@ import Error from "../../components/Error/Error.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
 
 // Import Styles
+import "./HomePage.css";
 
 const HomePage = () => {
   const dispatch = useDispatch();

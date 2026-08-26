@@ -12,6 +12,7 @@ import Loading from "../../components/Loading/Loading.jsx";
 import Error from "../../components/Error/Error.jsx";
 
 // Import Styles
+import "./MediaCategoryPage.css";
 
 // Existing Categories
 const CATEGORIES = {

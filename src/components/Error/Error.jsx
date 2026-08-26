@@ -2,6 +2,7 @@
 import React from "react";
 
 // Import Styles
+import "./Error.css";
 
 // Error Component
 const Error = ({ error, onRetry }) => {

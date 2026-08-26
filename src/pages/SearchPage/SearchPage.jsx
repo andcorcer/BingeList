@@ -10,6 +10,7 @@ import { fetchSearchResults } from "../../store/mediaSlice";
 import MediaGrid from "../../components/MediaGrid/MediaGrid";
 
 // Import Styles
+import "./SearchPage.css";
 
 // Existing Filter Tabs
 const FILTER_OPTIONS = [

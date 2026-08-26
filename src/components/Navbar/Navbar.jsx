@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 // Import Styles
+import "./Navbar.css";
 
 // Navbar Component
 const Navbar = () => {

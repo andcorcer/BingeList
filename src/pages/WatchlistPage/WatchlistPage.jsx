@@ -10,6 +10,7 @@ import { clearWatchlist } from "../../store/watchlistSlice";
 import MediaGrid from "../../components/MediaGrid/MediaGrid";
 
 // Import Styles
+import "./WatchlistPage.css";
 
 // WatchlistPage Component
 const WatchlistPage = () => {

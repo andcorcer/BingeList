@@ -7,6 +7,7 @@ import Error from "../Error/Error.jsx";
 import Loading from "../Loading/Loading.jsx";
 
 // Import Styles
+import "./MediaGrid.css";
 
 // MediaGrid Component
 const MediaGrid = ({

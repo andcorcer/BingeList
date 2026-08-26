@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Import Styles
+import "./NotFoundPage.css";
 
 // NotFoundPage Component
 const NotFoundPage = () => {

@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 
 // Import Styles
+import "./Layout.css";
 
 // Layout Component
 const Layout = () => {
