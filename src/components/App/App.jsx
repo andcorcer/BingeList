@@ -17,9 +17,6 @@ import MediaCategoryPage from "../../pages/MediaCategoryPage/MediaCategoryPage.j
 import WatchlistPage from "../../pages/WatchlistPage/WatchlistPage.jsx";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 
-// Import Styles
-import "./App.css";
-
 // Create the router
 const router = createBrowserRouter(
   createRoutesFromElements(
