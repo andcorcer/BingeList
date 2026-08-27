@@ -1,6 +1,6 @@
 // Import all dependencies
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Import Actions
@@ -35,15 +35,31 @@ const MediaCategoryPage = () => {
   const { mediaType, category = "popular" } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const { results, page, totalPages, status, error } = useSelector(
-    (state) => state.media.category || {},
-  );
+  const {
+    results,
+    totalPages = 1,
+    status,
+    error,
+  } = useSelector((state) => state.media.category || {});
 
-  // Fetch media details when the component mounts or when mediaType, category or page change
+  // Save the page as a query and only return it if its a valid page number
+  const rawPage = Number(searchParams.get("page"));
+  const page =
+    rawPage && rawPage >= 1 && Number.isInteger(rawPage) ? rawPage : 1;
+
+  // Fetch media details when the component mounts or when mediaType or category or page change
   useEffect(() => {
     dispatch(fetchCategoryMediaThunk({ type: mediaType, category, page }));
   }, [dispatch, mediaType, category, page]);
+
+  // Redirect out-of-bounds pages back to page 1 after API data successfully loads
+  useEffect(() => {
+    if (status === "succeeded" && totalPages > 0 && page > totalPages) {
+      setSearchParams({ page: 1 });
+    }
+  }, [status, page, totalPages, setSearchParams]);
 
   // Handle changing the active category using tabs
   const handleCategoryChange = (newCategory) => {
@@ -52,9 +68,8 @@ const MediaCategoryPage = () => {
 
   // Handle next/previous page clicks
   const handlePageChange = (newPage) => {
-    dispatch(
-      fetchCategoryMediaThunk({ type: mediaType, category, page: newPage }),
-    );
+    setSearchParams({ page: newPage });
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Resets the user to the top of the page
   };
 
   // Format the returned category into readable text (e.g. "top_rated => Top Rated")
@@ -103,7 +118,7 @@ const MediaCategoryPage = () => {
         error={error}
         emptyMessage={`No ${mediaType === "movie" ? "movies" : "TV shows"} found for the ${category} category.`}
         onRetry={() =>
-          dispatch(fetchCategoryMediaThunk({ type: mediaType, category }))
+          dispatch(fetchCategoryMediaThunk({ type: mediaType, category, page }))
         }
       />
 

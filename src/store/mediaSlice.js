@@ -16,7 +16,6 @@ const initialState = {
   search: { results: [], page: 1, totalPages: 1, status: "idle", error: null },
   category: {
     results: [],
-    page: 1,
     totalPages: 1,
     status: "idle",
     error: null,
@@ -150,7 +149,6 @@ const mediaSlice = createSlice({
       .addCase(fetchCategoryMediaThunk.fulfilled, (state, action) => {
         state.category.status = "succeeded";
         state.category.results = action.payload.results;
-        state.category.page = action.payload.page;
         state.category.totalPages = action.payload.total_pages;
         state.category.error = null;
       })
@@ -162,5 +160,11 @@ const mediaSlice = createSlice({
 });
 
 // Export actions and reducer
-export const { clearSearch, clearDetails, clearCategory } = mediaSlice.actions;
+export const {
+  clearSearch,
+  clearDetails,
+  clearCategory,
+  setCategoryPage,
+  resetCategoryPage,
+} = mediaSlice.actions;
 export default mediaSlice.reducer;

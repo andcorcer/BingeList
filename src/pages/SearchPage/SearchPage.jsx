@@ -148,7 +148,7 @@ const SearchPage = () => {
 
       {/* Page Controls */}
       {/* Doesn't load the page controls if there's less than one, if it's still loading or if there was an error*/}
-      {totalPages > 1 && !isLoading && !error && ( 
+      {totalPages > 1 && !isLoading && !error && (
         <div className="page-controls">
           {/* Disables the button if there aren't any previous pages or if the media is still loading */}
           <button
