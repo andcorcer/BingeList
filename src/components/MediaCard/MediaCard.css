@@ -1,0 +1,104 @@
+/* Card Container */
+.media-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.media-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Poster Section */
+.poster-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Watchlist Button */
+.watchlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  text-align: center;
+
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  z-index: 1;
+}
+
+.watchlist-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.watchlist-btn.active {
+  color: #f5c518; 
+}
+
+/* Card Content Link & Text Area */
+.card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden; /* Keeps long titles to a single neat line */
+  text-overflow: ellipsis; 
+  color: #ffffff;
+}
+
+/* Metadata Div */
+.card-meta {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.rating {
+  font-weight: 500;
+  color: #f5c518;
+}
+
+.year {
+  color: #888888;
+}

@@ -147,13 +147,14 @@ const SearchPage = () => {
       )}
 
       {/* Page Controls */}
-      {totalPages > 1 && (
+      {/* Doesn't load the page controls if there's less than one, if it's still loading or if there was an error*/}
+      {totalPages > 1 && !isLoading && !error && ( 
         <div className="page-controls">
           {/* Disables the button if there aren't any previous pages or if the media is still loading */}
           <button
             type="button"
             className="btn back-btn"
-            disabled={page === 1 || isLoading}
+            disabled={page === 1}
             onClick={() => handlePageChange(page - 1)}
           >
             Previous Page
@@ -164,11 +165,11 @@ const SearchPage = () => {
             Page {page} of {totalPages}
           </p>
 
-          {/* Disables the button if there aren't any more pages or if the media is still loading */}
+          {/* Disables the button if there aren't any more pages */}
           <button
             type="button"
             className="btn back-btn"
-            disabled={page === totalPages || isLoading}
+            disabled={page === totalPages}
             onClick={() => handlePageChange(page + 1)}
           >
             Next Page
