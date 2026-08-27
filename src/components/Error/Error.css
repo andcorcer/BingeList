@@ -1,0 +1,21 @@
+/* Error Component Container */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* flex: 1;  */
+  width: 100%;
+  min-height: 50vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Error Message */
+.error-message {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ff4d4f;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
