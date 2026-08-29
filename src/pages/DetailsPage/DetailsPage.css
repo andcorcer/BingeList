@@ -1,18 +1,181 @@
+/* Page Container */
+.details-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  color: #fff;
+}
+
+/* Backdrop Image */
 .details-backdrop {
   position: relative;
   width: 100%;
-  height: 400px; /* Or 50vh, depending on how tall you want it */
-  background-size: cover; /* Ensures the image covers the whole div without stretching */
-  background-position: center; /* Keeps the most important part of the image in the middle */
+  height: 75vh;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Creates a gradient that gets darker towards the bottom (alpha value 0)*/
 .details-backdrop-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #121212 5%, rgba(18, 18, 18, 0) 100%);
+  background: linear-gradient(
+    0deg, /* Gradient from bottom to top */
+    rgba(18, 18, 18, 0.95), /* All the way at the bottom */
+    rgba(18, 18, 18, 0.2) /* All the way at the top */
+  );
+}
+
+/* Container overlapping the backdrop */
+.details-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: -200px auto 0;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Poster and Action Button Column */
+.details-poster-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 225px;
+  gap: 1rem;
+}
+
+.details-poster {
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.watchlist-btn-large {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.watchlist-btn-large:hover {
+  background-color: #334155;
+}
+
+.watchlist-btn-large.active {
+  background-color: #e50914;
+  border-color: #e50914;
+  color: #fff;
+}
+
+.watchlist-btn-large.active:hover {
+  background-color: #b91c1c;
+}
+
+/* Main Details Info Column */
+.details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.details-year {
+  color: #94a3b8;
+  font-weight: 300;
+}
+
+.details-tagline {
+  font-style: italic;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+
+/* Meta Data */
+.details-meta {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+.badge {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid #334155;
+}
+
+.badge.rating {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #e0b20f;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badge.type {
+  background-color: rgba(37, 99, 235, 0.15);
+  color: #94a3b8;
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.badge.duration, .badge.seasons {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.details-genres {
+  font-size: 0.875rem;
+  color: #fff;
+}
+
+.details-overview-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.details-overview {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .details-title {
+    font-size: 2rem;
+  }
+
+  .details-meta {
+    justify-content: center;
+  }
 }

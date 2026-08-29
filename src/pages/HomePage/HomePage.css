@@ -28,8 +28,8 @@
   inset: 0;
   background: linear-gradient(
     90deg, /* Gradient from left to right*/
-    rgba(15, 23, 42, 0.95), /* All the way to the left */ 
-    rgba(15, 23, 42, 0.2) /* All the way to the right */
+    rgba(15, 23, 42, 0.95), /* All the way at the left */ 
+    rgba(15, 23, 42, 0.2) /* All the way at the right */
   );
   display: flex;
   align-items: center;
@@ -118,8 +118,8 @@
     padding: 1.5rem;
     background: linear-gradient(
       0deg, /* Gradient from bottom to top*/ 
-      rgba(15, 23, 42, 0.95), /* All the way to the bottom */
-      rgba(15, 23, 42, 0.2) /* All the way to the top */
+      rgba(15, 23, 42, 0.95), /* All the way at the bottom */
+      rgba(15, 23, 42, 0.2) /* All the way at the top */
     );
   }
 
