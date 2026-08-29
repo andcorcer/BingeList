@@ -67,7 +67,7 @@ const HomePage = () => {
             <div className="hero-overlay">
               <div className="hero-content">
                 <span className="hero-badge">Trending #1</span>
-                <h1>{featuredItem.title || featuredItem.name}</h1>{" "}
+                <h1>{featuredItem.title || featuredItem.name}</h1>
                 {/* Display title for movies and name for TV shows */}
                 <p className="hero-overview">{featuredItem.overview}</p>
                 <div className="hero-actions">

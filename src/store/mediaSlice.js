@@ -13,7 +13,7 @@ import {
 const initialState = {
   trending: { movies: [], tv: [], status: "idle", error: null },
   details: { data: null, status: "idle", error: null },
-  search: { results: [], page: 1, totalPages: 1, status: "idle", error: null },
+  search: { results: [], totalPages: 1, status: "idle", error: null },
   category: {
     results: [],
     totalPages: 1,
@@ -132,7 +132,6 @@ const mediaSlice = createSlice({
       .addCase(fetchSearchResults.fulfilled, (state, action) => {
         state.search.status = "succeeded";
         state.search.results = action.payload.results;
-        state.search.page = action.payload.page;
         state.search.totalPages = action.payload.total_pages;
         state.search.error = null;
       })

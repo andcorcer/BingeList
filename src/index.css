@@ -20,11 +20,19 @@
   cursor: not-allowed;
 }
 
-/* Primary Color Variant */
+/* Button Primary */
 .btn-primary {
   background-color: #f5c518;
   color: #000000;
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
+
 
 /* Hover but not Disabled */
 .btn-primary:hover:not(:disabled) {
@@ -35,4 +43,31 @@
 /* Active but not Disabled */
 .btn-primary:active:not(:disabled) {
   transform: translateY(0);
+}
+
+/* Select */
+select {
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  background-color: #1e293b;
+  color: #fff;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+select:focus {
+  border-color: #2563eb;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .btn-primary {
+    font-size: 0.75rem;
+    padding: 0.5rem 1.25rem;
+  }
 }

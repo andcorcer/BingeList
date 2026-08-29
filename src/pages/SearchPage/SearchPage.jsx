@@ -32,9 +32,14 @@ const SearchPage = () => {
   const dispatch = useDispatch();
 
   // Import the search state from the media slice
-  const { results, page, totalPages, status, error } = useSelector(
+  const { results, totalPages, status, error } = useSelector(
     (state) => state.media.search || {},
   ); // Fallback empty object
+
+  // Save the page as a query and only return it if its a valid page number
+  const rawPage = Number(searchParams.get("page"));
+  const page =
+    rawPage && rawPage >= 1 && Number.isInteger(rawPage) ? rawPage : 1;
 
   // Update input state and trigger search with an empty string if the user enters something like a whitespace so that it doesn't use an API call unecessarily
   useEffect(() => {
@@ -50,6 +55,13 @@ const SearchPage = () => {
       );
     }
   }, [dispatch, queryParam, typeParam, pageParam]);
+
+  // Redirect out-of-bounds pages back to page 1 after API data successfully loads
+  useEffect(() => {
+    if (status === "succeeded" && totalPages > 0 && page > totalPages) {
+      setSearchParams({ page: 1 });
+    }
+  }, [status, page, totalPages, setSearchParams]);
 
   // Handle submission function changes the URL search query using setSearchParams
   const handleSubmit = (event) => {
@@ -148,7 +160,7 @@ const SearchPage = () => {
 
       {/* Page Controls */}
       {/* Doesn't load the page controls if there's less than one, if it's still loading or if there was an error*/}
-      {totalPages > 1 && !isLoading && !error && (
+      {queryParam && totalPages > 1 && !isLoading && !error && (
         <div className="page-controls">
           {/* Disables the button if there aren't any previous pages or if the media is still loading */}
           <button

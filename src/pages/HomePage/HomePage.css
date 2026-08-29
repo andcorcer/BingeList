@@ -1,0 +1,147 @@
+/* Container Layout */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+/* Hero Banner Section */
+.hero-banner {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero-backdrop {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, /* Gradient from left to right*/
+    rgba(15, 23, 42, 0.95), /* All the way to the left */ 
+    rgba(15, 23, 42, 0.2) /* All the way to the right */
+  );
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.hero-content {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #fff;
+}
+
+.hero-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  background-color: #e50914;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  border-radius: 0.25rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.hero-overview {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  /* Handles text overflowing over 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+/* Margin for the View Details button */
+.hero-actions {
+  margin-top: 0.75rem;
+}
+
+/* Trending Main Section & Headers */
+.trending-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.trending-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  border-bottom: 2px solid #94a3b8;
+  padding-bottom: 0.5rem;
+}
+
+.trending-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin: 1.5rem 0 0;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .hero-backdrop {
+    min-height: 375px;
+  }
+
+  .hero-overlay {
+    padding: 1.5rem;
+    background: linear-gradient(
+      0deg, /* Gradient from bottom to top*/ 
+      rgba(15, 23, 42, 0.95), /* All the way to the bottom */
+      rgba(15, 23, 42, 0.2) /* All the way to the top */
+    );
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-overview {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2; /* Only 2 lines max of text */
+    line-clamp: 2;
+  }
+
+  .trending-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .trending-section h3 {
+    font-size: 1.25rem;
+  }
+}
