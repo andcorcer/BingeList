@@ -106,7 +106,7 @@ const SearchPage = () => {
             value={inputValue}
             onChange={({ target }) => setInputValue(target.value)}
           />
-          <button type="submit" className="btn search-btn">
+          <button type="submit" className="btn-primary search-btn">
             Search
           </button>
         </form>
@@ -118,7 +118,7 @@ const SearchPage = () => {
             <button
               key={tab.value}
               type="button"
-              className={`tab-btn ${typeParam === tab.value ? "active" : ""}`}
+              className={`btn tab-btn ${typeParam === tab.value ? "active" : ""}`}
               aria-pressed={typeParam === tab.value}
               onClick={() => handleFilterChange(tab.value)}
             >
@@ -165,7 +165,7 @@ const SearchPage = () => {
           {/* Disables the button if there aren't any previous pages or if the media is still loading */}
           <button
             type="button"
-            className="btn back-btn"
+            className="btn page-btn"
             disabled={page === 1}
             onClick={() => handlePageChange(page - 1)}
           >
@@ -180,7 +180,7 @@ const SearchPage = () => {
           {/* Disables the button if there aren't any more pages */}
           <button
             type="button"
-            className="btn back-btn"
+            className="btn page-btn"
             disabled={page === totalPages}
             onClick={() => handlePageChange(page + 1)}
           >

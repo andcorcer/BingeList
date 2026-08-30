@@ -1,3 +1,8 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
 /* Button */
 .btn {
   display: inline-flex;
@@ -11,7 +16,6 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 /* Disabled */
@@ -30,9 +34,10 @@
   font-size: 1rem;
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
-
 
 /* Hover but not Disabled */
 .btn-primary:hover:not(:disabled) {
@@ -55,12 +60,45 @@ select {
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
+  letter-spacing: 1px;
   cursor: pointer;
   outline: none;
   transition: border-color 0.2s ease;
 }
 
 select:focus {
+  border-color: #2563eb;
+}
+
+/* Global Pagination Controls */
+.page-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.page-controls .page-number {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+
+.page-btn {
+  background-color: #1e293b;
+  color: #fff;
+  border: 1px solid #334155;
+  padding: 0.6rem 1.25rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: #334155;
   border-color: #2563eb;
 }
 

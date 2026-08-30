@@ -129,7 +129,7 @@ const MediaCategoryPage = () => {
           {/* Disables the button if there aren't any previous pages or if the media is still loading */}
           <button
             type="button"
-            className="btn back-btn"
+            className="btn page-btn"
             disabled={page === 1}
             onClick={() => handlePageChange(page - 1)}
           >
@@ -144,7 +144,7 @@ const MediaCategoryPage = () => {
           {/* Disables the button if there aren't any more pages */}
           <button
             type="button"
-            className="btn back-btn"
+            className="btn page-btn"
             disabled={page === totalPages}
             onClick={() => handlePageChange(page + 1)}
           >
