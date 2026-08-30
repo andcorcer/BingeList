@@ -30,7 +30,7 @@
   text-decoration: none;
 }
 
-/* Media Query for Tablets and Larger Screens */
+/* Responsive Styles */
 @media (min-width: 768px) {
   .header {
     flex-direction: row;

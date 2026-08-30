@@ -22,9 +22,10 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    0deg, /* Gradient from bottom to top */
-    rgba(18, 18, 18, 0.95), /* All the way at the bottom */
-    rgba(18, 18, 18, 0.2) /* All the way at the top */
+    0deg,
+    /* Gradient from bottom to top */ rgba(18, 18, 18, 0.95),
+    /* All the way at the bottom */ rgba(18, 18, 18, 0.2)
+      /* All the way at the top */
   );
 }
 
@@ -136,7 +137,8 @@
   border-color: rgba(37, 99, 235, 0.3);
 }
 
-.badge.duration, .badge.seasons {
+.badge.duration,
+.badge.seasons {
   background-color: #1e293b;
   color: #fff;
 }

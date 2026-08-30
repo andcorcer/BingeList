@@ -88,11 +88,12 @@
   margin: 0;
 }
 
-/* Media Query for Tablets and Smaller Screens */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .search-input {
     font-size: 0.75rem;
     padding: 0.5rem 1.25rem;
+    width: 100%;
   }
 }
 
@@ -102,7 +103,6 @@
   }
   .search-form {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .search-input {

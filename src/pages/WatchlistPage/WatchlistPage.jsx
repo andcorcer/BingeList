@@ -66,7 +66,7 @@ const WatchlistPage = () => {
         {hasItems && (
           <button
             type="button"
-            className="btn clear-btn"
+            className="btn-primary clear-btn"
             onClick={handleClearAll}
             disabled={isLoading}
           >

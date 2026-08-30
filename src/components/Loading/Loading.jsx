@@ -4,7 +4,6 @@ import React from "react";
 // Import Styles
 import "./Loading.css";
 
-
 // Loading Component
 const Loading = () => {
   return (

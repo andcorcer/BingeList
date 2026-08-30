@@ -8,7 +8,6 @@ import Navbar from "../Navbar/Navbar.jsx";
 // Import Styles
 import "./Header.css";
 
-
 // Header Component
 const Header = () => {
   return (

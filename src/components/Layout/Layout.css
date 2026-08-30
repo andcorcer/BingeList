@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-/* Media Query for Tablets and Larger Screens */
+/* Responsive Styles */
 @media (min-width: 768px) {
   .main-content {
     padding: 2rem 1.5rem;

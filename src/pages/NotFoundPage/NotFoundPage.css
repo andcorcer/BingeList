@@ -32,7 +32,7 @@
   margin: 0 0 1.5rem 0;
 }
 
-/* Responsive adjustments for mobile screens */
+/* Responsive Styles */
 @media (max-width: 480px) {
   .not-found-page .error-code {
     font-size: 4rem;

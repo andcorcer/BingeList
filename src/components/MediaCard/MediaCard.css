@@ -5,7 +5,9 @@
   background-color: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   height: 100%;
 }
 
@@ -50,7 +52,9 @@
   line-height: 1;
   text-align: center;
 
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
   z-index: 1;
 }
 
@@ -61,7 +65,7 @@
 }
 
 .watchlist-btn.active {
-  color: #f5c518; 
+  color: #f5c518;
 }
 
 /* Card Content Link & Text Area */
@@ -82,14 +86,14 @@
   font-weight: 600;
   margin: 0;
   overflow: hidden; /* Keeps long titles to a single neat line */
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   color: #ffffff;
 }
 
 /* Metadata Div */
 .card-meta {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   font-size: 0.875rem;
 }
