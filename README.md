@@ -117,9 +117,7 @@ state = {
     ```bash
     npm install 
     ```
-    ```text
     or 
-    ```
     ```bash
     yarn install 
     ```
@@ -134,9 +132,7 @@ state = {
     ```bash 
     npm run dev
      ```
-    ```text 
     or 
-    ```
     ```bash
      yarn dev 
     ```
