@@ -100,7 +100,7 @@ state = {
 ```text
 - **Node.js**: `v18.0.0` or higher
 - **npm** or **yarn**
-- **TMDB API Acces Token**: Obtain a free API key from [The Movie Database](https://www.themoviedb.org/)
+- **TMDB API Access Token**: Obtain a free API key from [The Movie Database](https://www.themoviedb.org/)
 ```
 
 ---
@@ -114,20 +114,32 @@ state = {
    ```
 
 2. **Install Dependencies**:
-    ```bash npm install ```
-    ```text or ```
-    ```bash yarn install ```
+    ```bash
+    npm install 
+    ```
+    ```text
+    or 
+    ```
+    ```bash
+    yarn install 
+    ```
 
 3. **Configure Environment Variable**
-    ```text 
     Create a .env file in the root directory and store your access token 
+    ```text 
     VITE_TMDB_READ_TOKEN=your_access_token_here
     ```
 
 4. **Start the Development Server**
-    ```bash npm run dev ```
-    ```text or ```
-    ```bash yarn dev ```
+    ```bash 
+    npm run dev
+     ```
+    ```text 
+    or 
+    ```
+    ```bash
+     yarn dev 
+    ```
 ### Deployment (Netlify)
 
 1. **Add your Environment Variable**
